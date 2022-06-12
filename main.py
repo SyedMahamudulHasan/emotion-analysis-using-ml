@@ -5,19 +5,19 @@ from tkinter.ttk import *
 
 class MyApp():
     def __init__(self):
-        root = Tk()
+        self.root = Tk()
 
-        root.geometry("700x500")
+        self.root.geometry("700x500")
 
         # title of the applications
-        root.title("Mental Health Analysis Using ML")
+        self.root.title("Mental Health Analysis Using ML")
 
         # defining the frame
-        frame = Frame(root, width=600, height=800)
+        frame = Frame(self.root, width=600, height=800)
         frame.place(anchor='center', relx=0.5, rely=0.5)
 
         # title
-        Label(root, text = 'Check Your Mental Helth', font =(
+        Label(self.root, text = 'Check Your Mental Helth', font =(
           'Verdana', 35)).pack(side = TOP, pady = 10)
 
         # image
@@ -40,9 +40,9 @@ class MyApp():
         # this button because we are providing
         # style only on this Button.
         ''' Button'''
-        btn = Button(root, text = 'Start!',
+        btn = Button(self.root, text = 'Start!',
                         style = 'W.TButton',
-                     command = root.destroy).pack(side=BOTTOM, pady=28)
+                     command = self.root.destroy).pack(side=BOTTOM, pady=28)
 
 
 
