@@ -39,5 +39,5 @@ style.configure('W.TButton', font =
 ''' Button'''
 btn = Button(root, text = 'Start!',
                 style = 'W.TButton',
-             command = root.destroy).pack(side=BOTTOM)
+             command = root.destroy).pack(side=BOTTOM, pady=30)
 root.mainloop()
