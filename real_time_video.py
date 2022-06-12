@@ -31,7 +31,7 @@ while True:
     frame = imutils.resize(frame,width=500)
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     faces = face_detection.detectMultiScale(gray,scaleFactor=1.1,minNeighbors=5,minSize=(30,30),flags=cv2.CASCADE_SCALE_IMAGE)
-    
+
     canvas = np.zeros((250, 300, 3), dtype="uint8")
     frameClone = frame.copy()
     if len(faces) > 0:
@@ -45,14 +45,14 @@ while True:
         roi = roi.astype("float") / 255.0
         roi = img_to_array(roi)
         roi = np.expand_dims(roi, axis=0)
-        
-        
+
+
         preds = emotion_classifier.predict(roi)[0]
         emotion_probability = np.max(preds)
         label = EMOTIONS[preds.argmax()]
     else: continue
 
- 
+
     for (i, (emotion, prob)) in enumerate(zip(EMOTIONS, preds)):
                 # construct the label text
                 text = "{}: {:.2f}%".format(emotion, prob * 100)
@@ -60,7 +60,7 @@ while True:
                 # draw the label + probability bar on the canvas
                # emoji_face = feelings_faces[np.argmax(preds)]
 
-                
+
                 w = int(prob * 300)
                 cv2.rectangle(canvas, (7, (i * 35) + 5),
                 (w, (i * 35) + 35), (0, 0, 255), -1)
