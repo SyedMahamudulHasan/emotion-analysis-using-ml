@@ -1,6 +1,7 @@
 from tkinter import *
 from PIL import ImageTk, Image
 from tkinter.ttk import *
+from real_time_video import start_video
 
 
 
@@ -38,7 +39,7 @@ style.configure('W.TButton', font =('calibri', 20, 'bold',),foreground = 'blue')
 ''' Button'''
 btn = Button(root, text = 'Start!',
                             style = 'W.TButton',
-                         command = root.destroy).pack(side=BOTTOM, pady=28)
+                         command = start_video).pack(side=BOTTOM, pady=28)
 
 
 
